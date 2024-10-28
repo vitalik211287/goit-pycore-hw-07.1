@@ -115,9 +115,9 @@ class AddressBook(UserDict):
                     elif congratulation_date.weekday() == 6:  # Неділя  
                         congratulation_date += timedelta(days=1)  
 
-                    # Додаємо до списку тільки якщо congratulation_date було встановлено  
-                    upcoming_birthdays.append((record.name.value, congratulation_date.strftime("%Y.%m.%d")))
-                    print(f'upcoming_birthdays{upcoming_birthdays}')  
+                    # Додаємо до списку тільки якщо congratulation_date було встановлено   
+                    upcoming_birthdays.append((record.name.value, congratulation_date.strftime("%d.%m.%Y"))) 
+                    # print(f'upcoming_birthdays{upcoming_birthdays}')
                     
         return upcoming_birthdays  
 
