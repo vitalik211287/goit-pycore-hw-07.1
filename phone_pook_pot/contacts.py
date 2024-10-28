@@ -23,10 +23,8 @@ def change_contact(args, book: AddressBook):
     # Змінює номер телефону контакту в book.
     if len(args) < 2:
         return "Please provide both name and new phone number."
-    
     name, new_phone = args
     record = book.find(name)
-
     if record is not None:
         # Заміна першого номера телефону на новий
         if record.phones:
@@ -36,9 +34,6 @@ def change_contact(args, book: AddressBook):
         return f"Contact {name} updated."
     else:
         raise KeyError(f"Contact {name} not found.")
-
-
-
 
 
 @input_error
@@ -55,8 +50,6 @@ def show_phone(args, book: AddressBook):
         return f"Contact {name} not found."
     
 
-
-
 @input_error
 def show_all(book: AddressBook): 
     # Показує всі контакти.  
@@ -64,6 +57,7 @@ def show_all(book: AddressBook):
         return "Contacts:\n" + "\n".join(str(record) for record in book.data.values())
     else:
         return "No contacts found."
+    
     
 @input_error
 def birthdays(args, book):
@@ -74,14 +68,13 @@ def birthdays(args, book):
     else:
         return "No birthdays within the upcoming week."
 
+
 @input_error
 def show_birthday(args, book):
     if len(args) < 1:
-        return "Please provide a name."
-    
+        return "Please provide a name." 
     name = args[0]
     record = book.find(name)
-    
     if record:
         if record.birthday:
             return f"{name}'s birthday is on {record.birthday}"
@@ -96,10 +89,8 @@ def show_birthday(args, book):
 def add_birthday(args, book):
     if len(args) < 2:
         return "Please provide both name and birthday in the format: [name] [DD.MM.YYYY]"
-    
     name, birthday = args[0], args[1]
     record = book.find(name)
-    
     if record:
         try:
             record.set_birthday(birthday)
