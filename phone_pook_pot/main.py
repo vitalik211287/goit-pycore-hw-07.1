@@ -6,7 +6,7 @@ def main():
     book = AddressBook()
     print("Welcome to the assistant bot!")
     while True:
-        command = input("Enter a command: ").lower()
+        command = input("Enter a command: ").lower().strip()
         match command:
             case "close" | "exit":
                 print("Good bye!")
